@@ -1,10 +1,10 @@
-version: '3.3'
+version: '3.7'
 
 services:
   db:
-    image: mysql:5.6
+    image: mysql:5.7
     ports:
-      - "3308:3306"
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 12345678
       MYSQL_DATABASE: bbchallenge
@@ -21,8 +21,8 @@ services:
     environment:
       APPLICATION_ENV: development
       ENABLE_XDEBUG: 0
-      PHP_XDEBUG: 1
-      PHP_XDEBUG_DEFAULT_ENABLE: 1
+      PHP_XDEBUG: 0
+      PHP_XDEBUG_DEFAULT_ENABLE: 0
       PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
       PHP_XDEBUG_REMOTE_PORT: 9999
       PHP_XDEBUG_REMOTE_HOST: 172.17.0.1

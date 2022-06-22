@@ -1,7 +1,5 @@
 FROM php:7.4-fpm
 
-MAINTAINER Stefanie Drost <contact@stefaniedrost.com>
-
 WORKDIR /var/www/html
 
 # install git
@@ -36,7 +34,7 @@ RUN apt-get update && apt-get upgrade -y && \
         wget
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --version=1.10.16 --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --version=2.3.7 --install-dir=/usr/local/bin --filename=composer
 RUN composer --version
 
 # Configure GD
@@ -70,9 +68,9 @@ RUN pecl install xdebug \
     && echo "display_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Install Node
-RUN curl -sL https://deb.nodesource.com/setup_10.x > setup_10.x \
-    && chmod +x setup_10.x \
-    && ./setup_10.x \
+RUN curl -sL https://deb.nodesource.com/setup_current.x > setup_current.x \
+    && chmod +x setup_current.x \
+    && ./setup_current.x \
     && apt install -y nodejs
 
 ###
