@@ -11,8 +11,9 @@ RUN apt-get update && \
 RUN usermod -u 1000 www-data
 
 #install some base extensions
-RUN apt-get update && \
+RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y \
+        npm \
         build-essential \
         libssl-dev \
         zlib1g-dev \
